@@ -1,0 +1,89 @@
+---
+title: "hovernet py"
+format: html
+editor: visual
+---
+
+## Hovernet output to anndata obj
+
+# import libraries
+
+```{python}
+from feature_extraction.processing_json import *
+```
+
+# func json to anndata
+
+# example json to anndata
+
+```{python}
+# def worker(slide_path):
+#     return process_slide(slide_path, hovernet_output_folder)
+
+
+
+wsi_folder = '/mnt/tcga_images/tcga_image_all/'
+hovernet_output_folder = '/home/ilaria/Documents/cuny/'
+h5ad_folder = "/home/ilaria/Documents/cuny/h5ad/"
+
+
+# Get list of slides
+slide_paths = glob.glob(os.path.join(wsi_folder, '*'))
+
+# Filter slide paths based on the existence of thumbnail and JSON files
+
+# Filter the slide paths
+# slide_path = slide_paths[0]
+# hovernet_output_path = '/home/ilaria/Documents/cuny/'
+# wsi_ext=".svs"
+# 
+# wsi_basename = os.path.basename(slide_path) 
+# wsi_basename = wsi_basename[:-(len(wsi_ext))]
+# thumb_path_wsi = os.path.join(hovernet_output_path, 'thumb', wsi_basename + '.png')
+# json_path_wsi = os.path.join(hovernet_output_path, 'json', wsi_basename + '.json')
+# return os.path.exists(thumb_path_wsi) and os.path.exists(json_path_wsi)
+
+filtered_slide_paths = [slide_path for slide_path in slide_paths if slide_has_outputs(slide_path, hovernet_output_folder)]
+
+
+# Create a pool of workers
+# pool = Pool(processes=cpu_count())
+pool = Pool(processes=2)
+
+# Wrap the slide_paths with tqdm for a progress bar
+#results = list(tqdm(pool.imap(worker, slide_paths), total=len(slide_paths)))
+def worker(slide_path):
+    result = process_slide(slide_path, hovernet_output_folder)
+    if result is None:
+        return None
+    return result
+
+
+results = list(tqdm(pool.imap(worker, filtered_slide_paths), total=len(filtered_slide_paths)))
+
+# Close the pool and wait for the work to finish
+pool.close()
+pool.join()
+
+# Create an empty dictionary to store all the AnnData objects
+```
+
+# how to create thumbnails with openslide
+
+# features exctraction
+
+
+# example features extraction
+
+```{python}
+adata_dict = {}
+for slide_name, adata in results:
+    slide_path = os.path.join(wsi_folder, slide_name + '.svs')
+    h5ad_path = os.path.join(h5ad_folder, slide_name + '.h5ad')
+    adata = add_intensity_features(adata, slide_path)
+    adata = add_spatial_distribution_features(adata)
+    # Add the created AnnData object to the dictionary
+    adata.write_h5ad(filename=h5ad_path)
+    # adata_dict[slide_name] = adata
+
+```
