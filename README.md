@@ -27,7 +27,7 @@ To use HoVerNet for segmentation:
 
 1. Set up the Conda environment as described in the [HoverNet GitHub repository](https://github.com/vqdang/hover_net).
 2. Run the script [run_infer.sh](code/slurm_run_hovernet.sh) in a GPU-enabled environment.
-The output will be a JSON file containing the segmentation results.
+The output will be a JSON file containing the nuclei segmentation and classification results.
 
 ## Feature Extraction on HoVerNet segmentation output (JSON file)
 
