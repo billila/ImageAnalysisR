@@ -1,9 +1,9 @@
 # ImageAnalysisR
 
-Code repo for ImageAnalysisR project.
+Code repo for **ImageAnalysisR** project.
 
 ## How to download TCGA image in R
-How to populate wsi_image folder.
+To populate the `wsi_image` folder with TCGA images, follow these steps:
 ```r
 ## Make sure BiocManager is installed
 if (!require("BiocManager", quietly = TRUE))
@@ -23,8 +23,23 @@ lapply(file_ids, gdcdata)
 ```
 
 ## HoVerNet 
-## Feature Extraction on HoVerNet segmentation output (JSON file) 
+To use HoVerNet for segmentation:
 
+1. Set up the Conda environment as described in the [HoverNet GitHub repository](https://github.com/vqdang/hover_net).
+2. Run the script [run_infer.sh](code/slurm_run_hovernet.sh) in a GPU-enabled environment.
+The output will be a JSON file containing the segmentation results.
+
+## Feature Extraction on HoVerNet segmentation output (JSON file)
+
+To extract features from the HoVerNet segmentation output (JSON file):
+
+* Use the scripts [hovernet_py.qmd](code/hovernet_py.qmd) to process the JSON file and generate an .h5ad file.
+
+## Example file 
+In this [folder](example) you can find example for:
+
+* HoVerNet output in `.json`, mask in `.png`, thumb in `.png`
+* Features Extraction output in `.h5ad`.
 
 ## Literature and useful links:
 
