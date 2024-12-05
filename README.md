@@ -2,6 +2,32 @@
 
 Code repo for ImageAnalysisR project.
 
+## How to download TCGA image in R
+How to populate wsi_image folder.
+```r
+## Make sure BiocManager is installed
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+## Make sure GenomicDataCommons is installed
+# BiocManager::install("GenomicDataCommons")
+library("GenomicDataCommons")
+
+# File IDs to download
+file_ids <- c(
+# Insert your file IDs here
+  )
+
+# Download files
+lapply(file_ids, gdcdata)
+```
+
+## HoVerNet 
+## Feature Extraction on HoVerNet segmentation output (JSON file) 
+
+
+## Literature and useful links:
+
 ### General Understanding and open problems in Digital Pathology
 - [Annual Review on Digital Pathology](https://www.annualreviews.org/content/journals/10.1146/annurev-cancerbio-062822-010523?crawler=true)  
 - [Scientific Review on Digital Pathology](https://www.sciencedirect.com/science/article/pii/S2153353923001712)  
