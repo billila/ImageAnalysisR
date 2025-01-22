@@ -75,6 +75,7 @@ In this [folder](example) you can find example for:
 ### GitHub Repositories
 - [ImageAnalysisR](https://github.com/billila/ImageAnalysisR) (Shared Code/Material)  
 - [imageTCGA](https://github.com/billila/imageTCGA) (Shiny Package)
+- [TCIAAPI](https://github.com/billila/TCIAAPI) (R Package)
 
 ### R Packages
 - **EBImage:**  
