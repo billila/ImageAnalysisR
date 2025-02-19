@@ -2,6 +2,14 @@
 
 Code repo for **ImageAnalysisR** project.
 
+## Progression update
+![Progress](https://progress-bar.xyz/41/?title=json)
+![h5ad](https://progress-bar.xyz/1/?title=h5ad)
+
+
+## Case Study: Ovarian Cancer 
+file html: [Ovarian Cancer Purity Analysis](https://html-preview.github.io/?url=https://github.com/billila/ImageAnalysisR/blob/main/case_study_OV/ov_purity_analysis.html)
+
 ## How to download TCGA image in R
 To populate the `wsi_image` folder with TCGA images, follow these steps:
 ```r
