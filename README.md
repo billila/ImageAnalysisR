@@ -3,8 +3,10 @@
 Code repo for **ImageAnalysisR** project.
 
 ## Progression update
-![Progress](https://progress-bar.xyz/41/?title=json)
-![h5ad](https://progress-bar.xyz/1/?title=h5ad)
+![Progress](https://progress-bar.xyz/100/?title=json)
+![h5ad](https://progress-bar.xyz/86/?title=h5ad)
+![slide-level embeddings](https://progress-bar.xyz/75/?title=slide-level)
+![tile-level embeddings](https://progress-bar.xyz/75/?title=tile-level)
 
 
 ## Case Study: Ovarian Cancer 
