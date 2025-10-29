@@ -1,3 +1,8 @@
+#######script to reprocduce plot and test between  ########
+####### clustering - purity - proprtion- nuclei type ########
+
+
+
 # clustering embeddings 
 library(survival)
 library(survminer)
